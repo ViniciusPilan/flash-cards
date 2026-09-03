@@ -189,4 +189,4 @@ Docker is primarily a container technology and ecosystem used to build and packa
 I would choose a VM when I need a separate operating system kernel, stronger workload isolation, different operating systems, or compatibility with applications that are not well suited to containers. Containers are generally preferable when the application can operate within the shared-kernel model and benefits from fast, portable deployment.
 
 ### 6. Testing
-Testing.
+Testing...
