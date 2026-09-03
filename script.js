@@ -58,7 +58,7 @@
 
   async function init() {
     try {
-      const res = await fetch('questions.yaml');
+      const res = await fetch('https://raw.githubusercontent.com/ViniciusPilan/flash-cards/refs/heads/main/questions.yaml');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
       const data = jsyaml.load(text);
