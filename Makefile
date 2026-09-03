@@ -1,25 +1,20 @@
 # Variables
-VENV = .venv
-PYTHON = $(VENV)/bin/python
 MD_FILE = questions.md
 YAML_FILE = questions.yaml
 PORT = 8000
 
 # Create virtual environment and install dependencies
-setup: $(VENV)
-
-$(VENV):
-	python3 -m venv $(VENV)
-	$(PYTHON) -m pip install --upgrade pip
-	$(PYTHON) -m pip install pyyaml
+setup:
+	python3 -m venv .venv
+	.venv/bin/python3 -m pip install pyyaml
 
 # Convert Markdown to YAML
-convert: setup
-	$(PYTHON) questions.py $(MD_FILE) $(YAML_FILE)
+convert:
+	.venv/bin/python3 questions.py $(MD_FILE) $(YAML_FILE)
 
 # Run HTTP server
 serve:
-	$(PYTHON) -m http.server $(PORT)
+	.venv/bin/python3 -m http.server $(PORT)
 
 # Clean up virtual environment and generated YAML
 clean:
