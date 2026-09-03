@@ -24,7 +24,7 @@ jobs:
       # To install script dependencies
       - run: pip install pyyaml
 
-      - run: python questions.py
+      - run: python questions.py questions.md questions.yaml
 
       - run: |
           git config user.name "github-actions[bot]"
