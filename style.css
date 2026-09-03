@@ -94,6 +94,87 @@ body {
   color: var(--text);
 }
 
+/* Category filter checkboxes — styled as terminal-flag chips to match the rest of the UI */
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel-2);
+}
+
+.filter-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.filter-group:hover {
+  border-color: var(--cyan);
+}
+
+.category-filter {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin: 0;
+  border: 1px solid var(--text-dim);
+  border-radius: 3px;
+  background: var(--panel-2);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.category-filter:checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.category-filter:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.category-filter:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.filter-label {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  user-select: none;
+  transition: color 0.12s ease;
+}
+
+.filter-group:has(.category-filter:checked) {
+  border-color: #2f6b3a;
+  background: rgba(126, 224, 138, 0.08);
+}
+
+.filter-group:has(.category-filter:checked) .filter-label {
+  color: var(--text);
+}
+
 .pane {
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -235,9 +316,11 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .next-btn { transition: none; }
+  .filter-group { transition: none; }
 }
 
 @media (max-width: 480px) {
   .screen { padding: 22px 18px 18px; }
   .pane-text { font-size: 14.5px; }
+  .filters-bar { padding: 12px 14px; gap: 8px; }
 }
