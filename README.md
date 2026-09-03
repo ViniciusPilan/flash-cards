@@ -11,4 +11,5 @@ The current project structure is:
 All of that can be make using the make instructions.
 
 ## Important notes
-This is a vibe coded project very simple. This development is still in progress.
+- Commits into main branch on questions.md will automatically build a new version of questions.yaml (via GitHub actions).
+- This is a vibe coded project very simple. This development is still in progress.
