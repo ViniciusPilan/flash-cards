@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>devops-flashcards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="terminal">
+  <div class="titlebar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="titlebar-text">devops-flashcards — zsh</div>
+  </div>
+
+  <div class="screen">
+    <p class="pathline"><span class="cwd">~/prep</span><span class="sep"> $ </span><span id="category" class="category">loading…</span></p>
+
+    <section class="pane q-pane">
+      <div class="pane-label"><span class="glyph">$</span> question</div>
+      <p id="question" class="pane-text">Reading questions.yaml…</p>
+    </section>
+
+    <section class="pane a-pane">
+      <div class="pane-label"><span class="glyph">#</span> answer</div>
+      <div id="answer-wrap" class="answer-wrap is-hidden">
+        <p id="answer" class="pane-text">—</p>
+        <div class="answer-veil">
+          <button id="reveal-btn" class="reveal-btn">
+            <span class="glyph">#</span> reveal --answer
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button id="next-btn" class="next-btn">
+        <span class="glyph">$</span> next --random
+      </button>
+      <span id="status" class="status"></span>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
