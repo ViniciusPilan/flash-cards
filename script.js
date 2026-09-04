@@ -6,9 +6,12 @@
   const revealBtn = document.getElementById('reveal-btn');
   const statusEl = document.getElementById('status');
   const nextBtn = document.getElementById('next-btn');
+  const filtersBar = document.getElementById('filters-bar');
 
   let cards = [];
-  let lastIndex = -1;
+  // categoryEnabled maps category name -> true/false (whether it's in the random pool).
+  let categoryEnabled = {};
+  let lastCard = null;
 
   function flatten(data) {
     const out = [];
@@ -24,13 +27,18 @@
     return out;
   }
 
-  function pickRandomIndex() {
-    if (cards.length <= 1) return 0;
-    let idx;
+  function getFilteredCards() {
+    return cards.filter((c) => categoryEnabled[c.category]);
+  }
+
+  function pickRandomCard(pool) {
+    if (!pool.length) return null;
+    if (pool.length === 1) return pool[0];
+    let card;
     do {
-      idx = Math.floor(Math.random() * cards.length);
-    } while (idx === lastIndex);
-    return idx;
+      card = pool[Math.floor(Math.random() * pool.length)];
+    } while (card === lastCard);
+    return card;
   }
 
   function hideAnswer() {
@@ -41,19 +49,59 @@
     answerWrapEl.classList.remove('is-hidden');
   }
 
-  function render(idx) {
-    const card = cards[idx];
-    if (!card) return;
-    lastIndex = idx;
+  function render(card, poolSize) {
+    lastCard = card;
     categoryEl.textContent = card.category;
     questionEl.textContent = card.question;
     answerEl.textContent = card.answer;
-    statusEl.textContent = `card ${idx + 1} of ${cards.length}`;
+    statusEl.textContent = `${poolSize} question${poolSize === 1 ? '' : 's'} in pool`;
     hideAnswer();
   }
 
   function showRandom() {
-    render(pickRandomIndex());
+    const pool = getFilteredCards();
+
+    if (!pool.length) {
+      lastCard = null;
+      categoryEl.textContent = 'no categories selected';
+      questionEl.textContent = 'Enable at least one category above to draw a question.';
+      answerEl.textContent = '—';
+      statusEl.textContent = '0 questions in pool';
+      hideAnswer();
+      return;
+    }
+
+    render(pickRandomCard(pool), pool.length);
+  }
+
+  // Builds one checkbox per category so the user can include/exclude it from the random pool.
+  function buildFilters(categoryNames) {
+    filtersBar.innerHTML = '';
+
+    categoryNames.forEach((name) => {
+      const group = document.createElement('label');
+      group.className = 'filter-group';
+      group.htmlFor = `filter-${name}`;
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'category-filter';
+      checkbox.id = `filter-${name}`;
+      checkbox.checked = true;
+
+      const text = document.createElement('span');
+      text.className = 'filter-label';
+      text.textContent = name;
+
+      checkbox.addEventListener('change', () => {
+        categoryEnabled[name] = checkbox.checked;
+        showRandom();
+      });
+
+      group.appendChild(checkbox);
+      group.appendChild(text);
+      filtersBar.appendChild(group);
+    });
   }
 
   async function init() {
@@ -69,6 +117,10 @@
         answerEl.textContent = '—';
         return;
       }
+
+      const categoryNames = [...new Set(cards.map((c) => c.category))];
+      categoryNames.forEach((name) => { categoryEnabled[name] = true; });
+      buildFilters(categoryNames);
 
       showRandom();
     } catch (err) {
