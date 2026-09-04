@@ -95,3 +95,7 @@ categories:
     answer: Docker is primarily a container technology and ecosystem used to build and package container images and historically to run containers. Kubernetes is a container orchestration platform that manages workloads across multiple machines. Kubernetes does not require Docker as its container runtime; it commonly uses runtimes such as containerd or CRI-O.
   - question: When would you choose a VM instead of a container?
     answer: I would choose a VM when I need a separate operating system kernel, stronger workload isolation, different operating systems, or compatibility with applications that are not well suited to containers. Containers are generally preferable when the application can operate within the shared-kernel model and benefits from fast, portable deployment.
+- category: Tests
+  questions:
+  - question: Testing
+    answer: Testing.
