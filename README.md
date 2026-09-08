@@ -52,6 +52,9 @@ The idea here is to create use a specific prompt for each category to avoid cont
 I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create 8 questions of each area from the following list:
 
 - Computer Operational Systems
+- Software engineer
+- System design
+- Artificial intelligence (focusing in LLM ecosystem)
 - Computer Network
 - Cloud Computing
 - Virtualization
