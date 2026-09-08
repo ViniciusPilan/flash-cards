@@ -21,8 +21,8 @@ You can use these files with the make instructions :)
 
 ### About the questions files
 - **questions.md:** The file containing all the "Questions and Answers by category". The currently categories are:
-    - Operational System
-    - Network
+    - Computer Operational Systems
+    - Computer Network
     - Cloud Computing
     - Virtualization
     - Infrastructure as a code (IaC)
@@ -47,18 +47,33 @@ When index.html loads in a browser, it executes script.js. The script fetches qu
 
 ### Creating questions for a specific category
 The idea here is to create use a specific prompt for each category to avoid context overloading and hallucination.
+
 ```md
+I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create 8 questions of each area from the following list:
 
-NUMBER_OF_QUESTIONS=8
-CATEGORY_NAME=Computer Operating Systems
+- Computer Operational Systems
+- Computer Network
+- Cloud Computing
+- Virtualization
+- Infrastructure as a code (IaC)
+- Monitoring and Observability
+- CI/CD
+- Tests
+- DevSecOps
+- DevOps
+- Containerizations
+- Kubernetes (Admin - CKA)
+- Kubernetes (Dev/User - CKAD)
+- Kubernetes (Admin/Sec Engineer - CKS)
+- DevOps core tools
 
-I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create NUMBER_OF_QUESTIONS questions of the area CATEGORY_NAME. Each questions must follow these rules:
-- You must create the question and also the respective answer.
+Follow strictly these rules when creating your answer:
+- For each category, you must create the question and also the respective answer.
 - Each question have one single answer.
 - Each question is answered as you are talking to a DevOps Engineer.
-- The ideal size of the question's answer should be something between 2 or 3 paragraphs (300~600 characteres).
+- The ideal size of the question's answer should be something between 2 or 3 paragraphs (250~450 characteres).
 - It's preferred that the questions focus in principles and fundamentals of that respective area.
-- You only answer this prompt with a Markdown file containing the category name, the questions and each question's answer, following this format:
+- You only answer this prompt with a Markdown block showing the markdown file formated containing the category name, the questions and each question's answer, following this format:
 
 <!-- START_OUTPUT_STRUCTURE_EXAMPLE -->
 
@@ -74,10 +89,19 @@ Answer.
 
 ---
 
-<!-- END_OUTPUT_STRUCTURE_EXAMPLE -->
+# CATEGORY_NAME
 
-- Respect the file structure described above. Anything else than the described here will not be accepted.
-- Your response must be inside of a Markdown file block.
+### 1. QUESTION
+
+Answer.
+
+### 2. QUESTION
+
+Answer.
+
+---
+
+<!-- END_OUTPUT_STRUCTURE_EXAMPLE -->
 
 ```
 
