@@ -1,28 +1,85 @@
 # Flash cards
 Simple tool to help in DevOps studying.
+- https://github.com/ViniciusPilan/flash-cards
+- https://flash-cards.vinipilan.workers.dev/
+
 
 ## How to use
 At **Makefile**, there are defined the core commands. Type `make help` to see all of them.
 
 The current project structure is:
-- questions.py process questions.md and create questions.yaml
-- the app (html + css + js) reads questions.yaml and shows its content via http server (using python3).
+- `questions.py` process `questions.md` and create `questions.yaml`
+- the app (html + css + js) reads `questions.yaml` and shows its content via http server (using python3).
+- The readme file (this current file) contains general information and useful prompts.
 
-All of that can be make using the make instructions.
+You can use these files with the make instructions :)
+
+### About the web app files
+- **index.html:** The UI skeleton and entry point. It defines the terminal-style layout (categories, question pane, answer pane with a reveal button, and next button) and loads stylesheets, the js-yaml parser library, and script.js.
+- **script.js:** The application logic. It fetches questions.yaml, parses the YAML data into JavaScript objects, flattens the categories into an array of flashcards, and dynamically updates the HTML DOM when users click to reveal answers or load random cards.
+- **style.css:**  Style settings.
+
+### About the questions files
+- **questions.md:** The file containing all the "Questions and Answers by category". The currently categories are:
+    - Operational System
+    - Network
+    - Cloud Computing
+    - Virtualization
+    - Infrastructure as a code (IaC)
+    - Monitoring and Observability
+    - CI/CD
+    - Tests
+    - DevSecOps
+    - DevOps
+    - Containerizations
+    - Kubernetes (Admin - CKA)
+    - Kubernetes (Dev/User - CKAD)
+    - Kubernetes (Admin/Sec Engineer - CKS)
+    - DevOps core tools
+
+- **questions.py:** When executed, this script creates the `questions.yaml` by reading and structuring the `questions.md` content.
+- **questions.yaml:** The data source containing structured flashcards organized hierarchically by category, question, and answer. This is read by the system to show in the web page.
+
+### How all of that is connected
+When index.html loads in a browser, it executes script.js. The script fetches questions.yaml over HTTP, parses it using the js-yaml library, and dynamically populates the DOM elements in index.html to create the interactive flashcard experience. Every push into the main branch on `questions.md` executes the `questions.py` to create the questions.yaml (it could be locally as well via the make file).
+
+## Prompts (to be reused)
+
+### Creating questions for a specific category
+The idea here is to create use a specific prompt for each category to avoid context overloading and hallucination.
+```md
+
+NUMBER_OF_QUESTIONS=8
+CATEGORY_NAME=Operational System
+
+I'm working into a educational project when I will create questions and answers to be a study material for DevOps engineers. Create NUMBER_OF_QUESTIONS questions of the area CATEGORY_NAME. Each questions must follow these rules:
+- You must create the question and also the respective answer.
+- Each question have one single answer.
+- Each question is answered as you are talking to a DevOps Engineer.
+- The ideal size of the question's answer should be something between 2 or 3 paragraphs (300~600 characteres).
+- It's preferred that the questions focus in principles and fundamentals of that respective area.
+- You only answer this prompt with a Markdown file containing the category name, the questions and each question's answer, following this format:
+
+<!-- START_OUTPUT_STRUCTURE_EXAMPLE -->
+
+# CATEGORY_NAME
+
+### 1. QUESTION
+
+Answer.
+
+### 2. QUESTION
+
+Answer.
+
+---
+
+<!-- END_OUTPUT_STRUCTURE_EXAMPLE -->
+
+- Respect the file structure described above. Anything else than the described here will not be accepted.
+
+```
 
 ## Important notes
 - Commits into main branch on questions.md will automatically build a new version of questions.yaml (via GitHub actions).
 - This is a vibe coded project very simple. This development is still in progress.
-
-## Prompt to reuse
-```md
-
-# Explaining each file
-- index.html: The UI skeleton and entry point. It defines the terminal-style layout (categories, question pane, answer pane with a reveal button, and next button) and loads stylesheets, the js-yaml parser library, and script.js.
-- script.js: The application logic. It fetches questions.yaml, parses the YAML data into JavaScript objects, flattens the categories into an array of flashcards, and dynamically updates the HTML DOM when users click to reveal answers or load random cards.
-- questions.yaml: The data source containing structured flashcards organized hierarchically by category, question, and answer.
-
-# How They Are Connected
-When index.html loads in a browser, it executes script.js. The script fetches questions.yaml over HTTP, parses it using the js-yaml library, and dynamically populates the DOM elements in index.html to create the interactive flashcard experience.
-
-```
