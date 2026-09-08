@@ -87,7 +87,7 @@
       checkbox.type = 'checkbox';
       checkbox.className = 'category-filter';
       checkbox.id = `filter-${name}`;
-      checkbox.checked = true;
+      checkbox.checked = false;
 
       const text = document.createElement('span');
       text.className = 'filter-label';
