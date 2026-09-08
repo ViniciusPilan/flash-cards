@@ -50,9 +50,9 @@ The idea here is to create use a specific prompt for each category to avoid cont
 ```md
 
 NUMBER_OF_QUESTIONS=8
-CATEGORY_NAME=Operational System
+CATEGORY_NAME=Computer Operating Systems
 
-I'm working into a educational project when I will create questions and answers to be a study material for DevOps engineers. Create NUMBER_OF_QUESTIONS questions of the area CATEGORY_NAME. Each questions must follow these rules:
+I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create NUMBER_OF_QUESTIONS questions of the area CATEGORY_NAME. Each questions must follow these rules:
 - You must create the question and also the respective answer.
 - Each question have one single answer.
 - Each question is answered as you are talking to a DevOps Engineer.
