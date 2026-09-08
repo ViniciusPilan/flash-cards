@@ -22,6 +22,9 @@ You can use these files with the make instructions :)
 ### About the questions files
 - **questions.md:** The file containing all the "Questions and Answers by category". The currently categories are:
     - Computer Operational Systems
+    - Software engineer
+    - System design
+    - Artificial intelligence (focusing in LLM ecosystem)
     - Computer Network
     - Cloud Computing
     - Virtualization
