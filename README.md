@@ -77,6 +77,7 @@ Answer.
 <!-- END_OUTPUT_STRUCTURE_EXAMPLE -->
 
 - Respect the file structure described above. Anything else than the described here will not be accepted.
+- Your response must be inside of a Markdown file block.
 
 ```
 
