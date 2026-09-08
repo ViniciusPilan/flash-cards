@@ -629,3 +629,81 @@ categories:
 
 
       When differences are detected, Argo CD can synchronize the cluster toward the declared configuration. This model makes Git a central source of truth for Kubernetes deployments and improves deployment consistency and auditability.'
+- category: Software Engineer
+  questions:
+  - question: What is the difference between cohesion and coupling in software design?
+    answer: Cohesion measures how closely related the responsibilities inside a module are. High cohesion means a component has a focused purpose. Coupling measures how dependent components are on each other. As a DevOps Engineer, favor highly cohesive components with low coupling because they are easier to test, deploy, scale, and troubleshoot.
+  - question: What is the Single Responsibility Principle?
+    answer: The Single Responsibility Principle states that a software component should have one primary reason to change. It does not necessarily mean that a class or service can contain only one function. For a DevOps Engineer, applying this principle helps create smaller, predictable components that are easier to deploy independently and maintain in automated environments.
+  - question: What is the difference between an interface and an implementation?
+    answer: An interface defines how a component can be used without exposing how it performs its work. The implementation contains the actual logic behind that interface. This separation allows implementations to change without affecting consumers. In DevOps, stable interfaces are valuable because they reduce dependencies between applications, infrastructure, automation, and deployment pipelines.
+  - question: What is idempotency and why is it important in automation?
+    answer: An operation is idempotent when executing it multiple times produces the same final state as executing it once. This is fundamental to infrastructure automation because retries and repeated executions are common. Tools such as Terraform and configuration-management systems rely heavily on this concept to safely converge environments toward a declared desired state.
+  - question: What is technical debt?
+    answer: Technical debt represents the future cost created by choosing a quick or imperfect solution instead of a more sustainable one. Like financial debt, it can be useful when managed intentionally, but excessive debt increases maintenance and operational costs. DevOps Engineers should identify technical debt in automation, infrastructure, pipelines, and applications before it becomes an operational risk.
+  - question: What is the purpose of automated testing in software engineering?
+    answer: Automated testing verifies software behavior consistently without requiring manual validation for every change. Unit, integration, and end-to-end tests provide different levels of confidence. For a DevOps Engineer, automated tests are essential in CI/CD because they create fast feedback, prevent regressions, and allow changes to move through environments with controlled risk.
+  - question: What is the difference between synchronous and asynchronous communication?
+    answer: Synchronous communication requires the caller to wait for the operation to complete, while asynchronous communication allows the caller to continue processing and receive a result later. Asynchronous patterns can improve scalability and resilience, especially when queues or event brokers are used. However, they also introduce concerns such as retries, ordering, and eventual consistency.
+  - question: What is version control and why is it fundamental to software engineering?
+    answer: Version control records changes to source code and other artifacts over time, allowing teams to collaborate, review modifications, and recover previous versions. Git is the most common example. For DevOps Engineers, version control extends beyond application code to infrastructure, configuration, CI/CD definitions, and policies, enabling reproducibility and traceable automation.
+- category: System Design
+  questions:
+  - question: What is scalability in system design?
+    answer: Scalability is a system's ability to handle increasing workload by adding resources or distributing work more effectively. Vertical scaling increases the capacity of existing machines, while horizontal scaling adds more instances. DevOps Engineers commonly favor horizontal scaling because it supports elasticity, fault tolerance, and cloud-native architectures.
+  - question: What is the difference between vertical and horizontal scaling?
+    answer: Vertical scaling increases the resources of an existing machine, such as CPU, memory, or storage. Horizontal scaling adds additional machines or application instances to distribute the workload. Horizontal scaling is generally more suitable for cloud-native systems because instances can be created, removed, and replaced automatically based on demand.
+  - question: What is a load balancer and why is it used?
+    answer: A load balancer distributes incoming traffic across multiple backend instances or services. This prevents a single instance from becoming a bottleneck and can improve availability by removing unhealthy instances from service. In DevOps environments, load balancers are commonly combined with health checks, autoscaling, and service discovery.
+  - question: What is caching and what problem does it solve?
+    answer: Caching stores frequently accessed data closer to consumers so it can be retrieved faster than from the original source. It reduces latency and decreases load on databases or backend services. A DevOps Engineer must consider cache invalidation, expiration, consistency, memory usage, and failure behavior because caching can introduce complexity as well as performance improvements.
+  - question: What is a database replication strategy?
+    answer: Database replication maintains copies of database data across multiple instances or locations. Replicas can improve availability, distribute read traffic, and provide recovery options. Common approaches include primary-replica and multi-primary architectures. DevOps Engineers must understand replication lag, failover behavior, consistency requirements, and how operational automation affects database reliability.
+  - question: What is the CAP theorem?
+    answer: The CAP theorem states that a distributed system cannot simultaneously guarantee strong Consistency, Availability, and Partition tolerance during a network partition. Since network partitions must be considered in distributed systems, architects typically choose trade-offs between consistency and availability. DevOps Engineers should understand these trade-offs when operating distributed databases and services.
+  - question: What is eventual consistency?
+    answer: Eventual consistency means that distributed copies of data may temporarily contain different values, but they converge to the same state when updates propagate successfully. It can improve availability and scalability compared with strict consistency. However, applications must tolerate temporary stale data, making this an important consideration when designing distributed systems and event-driven architectures.
+  - question: What is high availability in system design?
+    answer: High availability means designing a system to remain operational despite failures of individual components. Common techniques include redundancy, health checks, failover, multiple availability zones, load balancing, and automated recovery. For a DevOps Engineer, high availability is not achieved by one component alone; it requires resilience across infrastructure, applications, networking, and operations.
+- category: Artificial Intelligence (LLM Ecosystem)
+  questions:
+  - question: What is a Large Language Model (LLM), and how does it generate text?
+    answer: 'An LLM is a neural network trained on large amounts of text to learn statistical patterns between tokens. Most modern LLMs use the Transformer architecture, which processes relationships between tokens using mechanisms such as self-attention.
+
+
+      When generating text, the model predicts the next token based on the previous context. It repeats this process until reaching a stopping condition, making the output a sequence of probabilistic predictions rather than a predefined response.'
+  - question: What is tokenization, and why is it important when working with LLMs?
+    answer: 'Tokenization converts text into smaller units called tokens that an LLM can process. A token may represent a complete word, part of a word, punctuation, or another text fragment, depending on the tokenizer used by the model.
+
+
+      As a DevOps Engineer, tokenization matters because LLM APIs commonly charge and enforce limits based on tokens. Token counts also determine context-window usage, latency, and potentially infrastructure costs when building LLM-powered applications.'
+  - question: What is a context window in an LLM?
+    answer: 'A context window is the maximum amount of information, measured in tokens, that an LLM can process as part of a single request and response context. It can contain system instructions, user messages, retrieved documents, conversation history, and generated output.
+
+
+      For a DevOps Engineer, context-window limits are important when designing AI services. Large prompts increase cost and latency, while exceeding the model''s limit can cause requests to fail or require strategies such as summarization, chunking, or retrieval.'
+  - question: What is the difference between pre-training and fine-tuning an LLM?
+    answer: 'Pre-training is the initial process where an LLM learns general language patterns from a very large dataset. It requires substantial computational resources and produces a general-purpose model capable of understanding and generating text.
+
+
+      Fine-tuning takes an existing model and trains it further on a smaller, specialized dataset. For infrastructure teams, this can adapt a model to specific behaviors or domains without the cost of training a foundation model from scratch.'
+  - question: What is Retrieval-Augmented Generation (RAG), and why is it useful?
+    answer: 'RAG combines an LLM with an external information-retrieval system. Instead of relying exclusively on knowledge stored in the model''s parameters, relevant documents are retrieved and provided as context when generating an answer.
+
+
+      For DevOps applications, RAG can connect an LLM to runbooks, architecture documentation, incident records, or internal knowledge bases. This allows the model to use current organizational information without requiring the underlying model to be retrained.'
+  - question: What is an embedding in the context of LLM applications?
+    answer: 'An embedding is a numerical representation of text or other data in a vector space. Similar concepts tend to produce vectors that are mathematically closer to one another, allowing applications to perform semantic similarity searches rather than relying only on exact keywords.
+
+
+      In an LLM platform, embeddings are commonly stored in vector databases and used for RAG. A DevOps Engineer may operate the infrastructure responsible for generating embeddings, storing vectors, indexing them, and serving low-latency similarity queries.'
+  - question: What are hallucinations in LLMs, and how can an LLM application reduce them?
+    answer: 'An LLM hallucination occurs when a model generates information that appears plausible but is incorrect, unsupported, or fabricated. This happens because the model is fundamentally generating probable token sequences rather than directly verifying every factual claim against reality.
+
+
+      Reducing hallucinations requires system-level controls such as RAG, structured outputs, validation, tool calls, and appropriate prompting. In production, DevOps teams should also monitor failure rates and establish safeguards before allowing AI systems to perform consequential operations.'
+  - question: What are inference parameters such as temperature and top-p?
+    answer: 'Inference parameters control how an LLM selects tokens during generation. Temperature influences randomness: lower values generally produce more deterministic outputs, while higher values allow more variation. Top-p limits token selection to a probability mass containing the most likely candidates.
+
+
+      For DevOps workloads, these parameters should match the application''s purpose. Deterministic infrastructure automation generally benefits from conservative settings, while brainstorming or creative applications can tolerate greater variability. They should be tested and monitored as part of the application configuration.'
