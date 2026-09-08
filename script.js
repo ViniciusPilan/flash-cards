@@ -7,11 +7,13 @@
   const statusEl = document.getElementById('status');
   const nextBtn = document.getElementById('next-btn');
   const filtersBar = document.getElementById('filters-bar');
+  const allBtn = document.getElementById('all-btn');
 
   let cards = [];
   // categoryEnabled maps category name -> true/false (whether it's in the random pool).
   let categoryEnabled = {};
   let lastCard = null;
+  let selectAllFlag = true;
 
   function flatten(data) {
     const out = [];
@@ -74,6 +76,27 @@
     render(pickRandomCard(pool), pool.length);
   }
 
+  function checkAll() {
+    console.log(filtersBar);
+
+    const checkboxes = filtersBar.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach((checkbox) => {
+      console.log(selectAllFlag);
+      if (selectAllFlag) {
+        checkbox.checked = false;
+      } else {
+        checkbox.checked = true;
+      }
+      // Manually dispatch a change event so your listener runs - required by the checkbox listener
+      checkbox.dispatchEvent(new Event('change'));
+    })
+
+
+    
+    selectAllFlag = !selectAllFlag;
+  }
+
   // Builds one checkbox per category so the user can include/exclude it from the random pool.
   function buildFilters(categoryNames) {
     filtersBar.innerHTML = '';
@@ -87,7 +110,7 @@
       checkbox.type = 'checkbox';
       checkbox.className = 'category-filter';
       checkbox.id = `filter-${name}`;
-      checkbox.checked = false;
+      checkbox.checked = selectAllFlag;
 
       const text = document.createElement('span');
       text.className = 'filter-label';
@@ -119,7 +142,7 @@
       }
 
       const categoryNames = [...new Set(cards.map((c) => c.category))];
-      categoryNames.forEach((name) => { categoryEnabled[name] = false; });
+      categoryNames.forEach((name) => { categoryEnabled[name] = selectAllFlag; });
       buildFilters(categoryNames);
 
       showRandom();
@@ -132,6 +155,7 @@
 
   nextBtn.addEventListener('click', showRandom);
   revealBtn.addEventListener('click', revealAnswer);
+  allBtn.addEventListener('click', checkAll);
 
   init();
 })();
