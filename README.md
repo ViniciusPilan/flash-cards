@@ -1,4 +1,4 @@
-# Flash cards
+# DevOps - Flash cards
 Simple tool to help in DevOps studying.
 - https://github.com/ViniciusPilan/flash-cards
 - https://flash-cards.vinipilan.workers.dev/
