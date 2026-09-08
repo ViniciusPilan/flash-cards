@@ -119,7 +119,7 @@
       }
 
       const categoryNames = [...new Set(cards.map((c) => c.category))];
-      categoryNames.forEach((name) => { categoryEnabled[name] = true; });
+      categoryNames.forEach((name) => { categoryEnabled[name] = false; });
       buildFilters(categoryNames);
 
       showRandom();
