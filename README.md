@@ -114,3 +114,4 @@ Answer.
 ## Important notes
 - Commits into main branch on questions.md will automatically build a new version of questions.yaml (via GitHub actions).
 - This is a vibe coded project very simple. This development is still in progress.
+- I understand that answers could be not 100% accurated as it was created with AI (I'm revisioning each answer to solve that problem). I also understand this is an application to help in remembering concepts, not about learning those from zero indeed. If you will use this project for some way, keep it in mind!
