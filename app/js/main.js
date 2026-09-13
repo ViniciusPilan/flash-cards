@@ -178,8 +178,11 @@ function createCheckBoxFilters(){
   state.categoriesList.forEach(categoryItem => {
     const checkbox = document.createElement("input");
     const label = document.createElement("label");
+    const container = document.createElement("span");
 
     const text = document.createTextNode(categoryItem);
+
+    container.className = "category-filter-container"
 
     checkbox.type = "checkbox";
     checkbox.id = categoryItem;
@@ -192,8 +195,10 @@ function createCheckBoxFilters(){
 
     checkbox.addEventListener("change", refreshAllowedCategoriesList);
 
-    elements.filtersField.appendChild(checkbox);
-    elements.filtersField.appendChild(label);
+    container.appendChild(checkbox);
+    container.appendChild(label);
+
+    elements.filtersField.appendChild(container);
   })
 }
 
