@@ -164,6 +164,72 @@ body {
   outline-offset: 2px;
 }
 
+/* Category filter checkboxes — same pill treatment as #all-btn,
+   with the label acting as the clickable chip wrapping the checkbox */
+.category-filter-label {
+  font-family: var(--font);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  transition: border-color 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+
+.category-filter-label:hover {
+  border-color: var(--cyan);
+  color: var(--text);
+}
+
+.category-filter {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin: 0;
+  border: 1px solid var(--text-dim);
+  border-radius: 3px;
+  background: var(--panel-2);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.category-filter:checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.category-filter:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.category-filter:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.category-filter-label:has(.category-filter:checked) {
+  border-color: #2f6b3a;
+  background: rgba(126, 224, 138, 0.08);
+  color: var(--text);
+}
+
 /* Prompt line (~/ $ category) */
 #ps-section {
   font-size: 13px;
