@@ -142,7 +142,6 @@ function changeToNextQuestion(){
   
   if (state.currentQuestion) {
     if (state.currentQuestion.ask == state.lastQuestion.ask) {
-      console.log("repetiu!");
       changeToNextQuestion();
     }
 
