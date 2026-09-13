@@ -183,9 +183,11 @@ function createCheckBoxFilters(){
 
     checkbox.type = "checkbox";
     checkbox.id = categoryItem;
+    checkbox.className = "category-filter";
     checkbox.checked = "yes";
 
     label.htmlFor = checkbox.id;
+    label.className = "category-filter-label"
     label.appendChild(text);
 
     checkbox.addEventListener("change", refreshAllowedCategoriesList);
