@@ -1,4 +1,4 @@
-## COMPUTER OPERATIONAL SYSTEMS
+## Computer operational systems
 
 ### 1. What is the primary role of an operating system in a computer?
 
@@ -62,7 +62,7 @@ In DevOps, permissions are critical for services, deployment agents, SSH access,
 
 ---
 
-## SOFTWARE ENGINEER
+## Software engineer
 
 ### 1. What is abstraction in software engineering?
 
@@ -126,7 +126,7 @@ For DevOps Engineers, poor error handling can make automation dangerous. Scripts
 
 ---
 
-## SYSTEM DESIGN
+## System design
 
 ### 1. What is scalability in system design?
 
@@ -190,7 +190,7 @@ Fault tolerance must be designed around realistic failure scenarios. Adding retr
 
 ---
 
-## ARTIFICIAL INTELLIGENCE — LLM ECOSYSTEM
+## Artificial intelligence - LLM ecosystem
 
 ### 1. What is a Large Language Model?
 
@@ -254,7 +254,7 @@ A safer architecture separates reasoning from execution. The model can propose a
 
 ---
 
-## COMPUTER NETWORK
+## Computer network
 
 ### 1. What is the purpose of the OSI model?
 
@@ -318,7 +318,7 @@ For DevOps troubleshooting, checking whether a port is listening, reachable, and
 
 ---
 
-## CLOUD COMPUTING
+## Cloud computing
 
 ### 1. What is cloud computing?
 
@@ -382,7 +382,7 @@ DevOps Engineers influence cost through infrastructure design and operational pr
 
 ---
 
-## VIRTUALIZATION AND CONTAINERS
+## Virtualization and containers
 
 ### 1. What is virtualization?
 
@@ -446,7 +446,7 @@ The key value is declarative management: engineers describe the desired state an
 
 ---
 
-## INFRASTRUCTURE AS CODE
+## Infrastructure as a Code (IaC)
 
 ### 1. What is Infrastructure as Code?
 
@@ -510,7 +510,7 @@ A better approach is to use dedicated secret-management systems and inject crede
 
 ---
 
-## MONITORING AND OBSERVABILITY
+## Monitoring and Observability
 
 ### 1. What is the difference between monitoring and observability?
 
@@ -638,7 +638,7 @@ Pipelines should have controlled permissions, monitoring, auditing, dependency m
 
 ---
 
-## TESTS
+## Tests
 
 ### 1. Why is software testing important?
 
@@ -702,7 +702,7 @@ Flaky tests reduce trust in CI because engineers begin ignoring failures. They s
 
 ---
 
-## DEVSECOPS
+## DevSecops
 
 ### 1. What is DevSecOps?
 
@@ -766,7 +766,7 @@ Secrets should not normally be embedded in source code, container images, or pla
 
 ---
 
-## DEVOPS
+## DevOps
 
 ### 1. What is DevOps?
 
@@ -830,7 +830,7 @@ A platform may provide standardized Kubernetes environments, deployment workflow
 
 ---
 
-## SECURITY
+## Security
 
 ### 1. What is the CIA triad?
 
