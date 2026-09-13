@@ -17,6 +17,11 @@ convert:
 serve:
 	.venv/bin/python3 -m http.server -d app
 
+run-local:
+	make setup
+	make convert
+	make serve
+
 # Display available commands
 help:
 	@echo "Usage:"
