@@ -18,9 +18,11 @@ const state = {
   questionsList: [],
   categoriesList: [],
   allowedCategories: new Set(),
+  filteredQuestionsList: [],
   pageCategoriesList: [],
   currentPageCategory: null,
-  selectAllFlag: false
+  selectAllFlag: false,
+  lastQuestion: new Question()
 }
 // ----------------------------------------------------------------------------------------
 
@@ -80,12 +82,11 @@ function getCaregoriesList(questionsList){
   return categories;
 }
 
-function getRandomQuestion(questionsList, allowedCategories){
-
+function getFilteredQuestionsList(questionsList, allowedCategories){
   let filteredQuestionsList = [];
 
   if (questionsList.length < 1 || allowedCategories.size < 1){
-    return null
+    return []
   }
 
   questionsList.forEach(questionItem => {
@@ -93,6 +94,17 @@ function getRandomQuestion(questionsList, allowedCategories){
       filteredQuestionsList.push(questionItem);
     }
   })
+
+  return filteredQuestionsList;
+}
+
+function getRandomQuestion(questionsList){
+
+  let filteredQuestionsList = [];
+
+  if (questionsList.length < 1){
+    return null
+  }
 
   const randomQuestionItem = filteredQuestionsList[Math.floor(Math.random() * filteredQuestionsList.length)];
   return randomQuestionItem;
@@ -147,13 +159,16 @@ function refreshAllowedCategoriesList(){
     }
   });
 
+  state.filteredQuestionsList = getFilteredQuestionsList(state.questionsList, state.allowedCategories);
+
   textTotalCategoriesQuantity.innerHTML = state.allowedCategories.size;
-  
-  if (state.allowedCategories.size == 0) {
-    textTotalQuestionsQuantity.innerHTML = 0;
-  } else {
-    textTotalQuestionsQuantity.innerHTML = state.questionsList.length;
-  }
+  textTotalQuestionsQuantity.innerHTML = state.filteredQuestionsList.length;
+
+  // if (state.allowedCategories.size == 0) {
+  //   textTotalQuestionsQuantity.innerHTML = 0;
+  // } else {
+  //   textTotalQuestionsQuantity.innerHTML = state.questionsList.length;
+  // }
 }
 
 function selectAllFilters(){
@@ -173,7 +188,17 @@ function selectAllFilters(){
 }
 
 function changeToNextQuestion(){
-  state.currentQuestion = getRandomQuestion(state.questionsList, state.allowedCategories);
+  state.currentQuestion = getRandomQuestion(state.filteredQuestionsList);
+  
+  if (state.currentQuestion) {
+    if (state.currentQuestion.ask == state.lastQuestion.ask) {
+      console.log("repetiu!");
+      changeToNextQuestion();
+    }
+
+    state.lastQuestion = state.currentQuestion;
+  }
+
   refreshCurrentQuestion();
 }
 
