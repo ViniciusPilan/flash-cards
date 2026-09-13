@@ -1,3 +1,5 @@
+import { elements } from "./dom.js"
+
 // TODO
 // - Style
 // - Split in specific js files
@@ -24,19 +26,6 @@ const state = {
   lastQuestion: new Question()
 }
 // ----------------------------------------------------------------------------------------
-
-// DOM Resources --------------------------------------------------------------------------
-const allButton = document.getElementById("all-btn");
-const changeToNextQuestionButton = document.getElementById("next-question-btn");
-const filtersField = document.getElementById("filters-field");
-const pageCategoriesField = document.getElementById("page-categories-field");
-const psHeaderText = document.getElementById("ps-header");
-const questionCategory = document.getElementById("question-category");
-const questionAsk = document.getElementById("question-ask-field");
-const questionAnswer = document.getElementById("question-answer-field");
-const revealCurrentQuestionButton = document.getElementById("reveal-question-btn");
-const textTotalQuestionsQuantity = document.getElementById("total-questions-quantity");
-const textTotalCategoriesQuantity = document.getElementById("total-categories-quantity");
 
 // ----------------------------------------------------------------------------------------
 
@@ -98,14 +87,11 @@ function getFilteredQuestionsList(questionsList, allowedCategories){
 }
 
 function getRandomQuestion(questionsList){
-
-  let filteredQuestionsList = [];
-
   if (questionsList.length < 1){
     return null
   }
 
-  const randomQuestionItem = filteredQuestionsList[Math.floor(Math.random() * filteredQuestionsList.length)];
+  const randomQuestionItem = questionsList[Math.floor(Math.random() * questionsList.length)];
   return randomQuestionItem;
 }
 // ----------------------------------------------------------------------------------------
@@ -123,7 +109,7 @@ async function refreshCurrentPageCategory(){
   state.questionsList = await getQuestionsList(`../inputs/${state.currentPageCategory}.yaml`);
   state.categoriesList = getCaregoriesList(state.questionsList);
 
-  psHeaderText.innerHTML = "~/" + state.currentPageCategory;
+  elements.psHeaderText.innerHTML = "~/" + state.currentPageCategory;
 
   createCheckBoxFilters();
   refreshAllowedCategoriesList();
@@ -132,24 +118,24 @@ async function refreshCurrentPageCategory(){
 
 function refreshCurrentQuestion(){
   if (!state.currentQuestion) {
-    questionCategory.innerHTML = "";
-    questionAsk.innerHTML = "";
-    questionAnswer.innerHTML = "";
+    elements.questionCategory.innerHTML = "";
+    elements.questionAsk.innerHTML = "";
+    elements.questionAnswer.innerHTML = "";
     return;
   }
 
-  questionCategory.innerHTML = state.currentQuestion.category;
-  questionAsk.innerHTML = state.currentQuestion.ask;
+  elements.questionCategory.innerHTML = state.currentQuestion.category;
+  elements.questionAsk.innerHTML = state.currentQuestion.ask;
 
   if (state.currentQuestion.answerHidden) {
-    questionAnswer.innerHTML = "hidden";
+    elements.questionAnswer.innerHTML = "hidden";
   } else {
-    questionAnswer.innerHTML = state.currentQuestion.answer;
+    elements.questionAnswer.innerHTML = state.currentQuestion.answer;
   }
 }
 
 function refreshAllowedCategoriesList(){
-  let checkBoxList = filtersField.querySelectorAll("input");
+  let checkBoxList = elements.filtersField.querySelectorAll("input");
   checkBoxList.forEach(checkBoxItem => {
     if (checkBoxItem.checked) {
       state.allowedCategories.add(checkBoxItem.id);
@@ -160,20 +146,14 @@ function refreshAllowedCategoriesList(){
 
   state.filteredQuestionsList = getFilteredQuestionsList(state.questionsList, state.allowedCategories);
 
-  textTotalCategoriesQuantity.innerHTML = state.allowedCategories.size;
-  textTotalQuestionsQuantity.innerHTML = state.filteredQuestionsList.length;
-
-  // if (state.allowedCategories.size == 0) {
-  //   textTotalQuestionsQuantity.innerHTML = 0;
-  // } else {
-  //   textTotalQuestionsQuantity.innerHTML = state.questionsList.length;
-  // }
+  elements.textTotalCategoriesQuantity.innerHTML = state.allowedCategories.size;
+  elements.textTotalQuestionsQuantity.innerHTML = state.filteredQuestionsList.length;
 }
 
 function selectAllFilters(){
-  filtersObjectList = filtersField.querySelectorAll("input");
+  elements.filtersObjectList = elements.filtersField.querySelectorAll("input");
 
-  filtersObjectList.forEach(filterObjectItem => {
+  elements.filtersObjectList.forEach(filterObjectItem => {
     if(state.selectAllFlag) {
       filterObjectItem.checked = true;
     }
@@ -218,12 +198,12 @@ function createPageCategoryButtons(){
 
     pageCategoryButton.addEventListener("click", (event) => changeCurrentPageCategory(event));
 
-    pageCategoriesField.appendChild(pageCategoryButton);
+    elements.pageCategoriesField.appendChild(pageCategoryButton);
   });
 }
 
 function createCheckBoxFilters(){
-  filtersField.innerHTML = "";
+  elements.filtersField.innerHTML = "";
 
   state.categoriesList.forEach(categoryItem => {
     const checkbox = document.createElement("input");
@@ -240,8 +220,8 @@ function createCheckBoxFilters(){
 
     checkbox.addEventListener("change", refreshAllowedCategoriesList);
 
-    filtersField.appendChild(checkbox);
-    filtersField.appendChild(label);
+    elements.filtersField.appendChild(checkbox);
+    elements.filtersField.appendChild(label);
   })
 }
 
@@ -254,9 +234,9 @@ async function main(){
   refreshCurrentPageCategory();
 
   // Listeners
-  allButton.addEventListener("click", selectAllFilters);
-  changeToNextQuestionButton.addEventListener("click", changeToNextQuestion);
-  revealCurrentQuestionButton.addEventListener("click", revealCurrentQuestion);
+  elements.allButton.addEventListener("click", selectAllFilters);
+  elements.changeToNextQuestionButton.addEventListener("click", changeToNextQuestion);
+  elements.revealCurrentQuestionButton.addEventListener("click", revealCurrentQuestion);
 }
 // ----------------------------------------------------------------------------------------
 
