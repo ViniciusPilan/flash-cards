@@ -1,34 +1,35 @@
-name: Generate Questions
+# name: Generate Questions
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - questions.md
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths:
+#       - questions.md
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
-jobs:
-  generate:
-    runs-on: ubuntu-latest
+# jobs:
+#   generate:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v6
+#     steps:
+#       - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
+#       - uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.x"
 
-      # To install script dependencies
-      - run: pip install pyyaml
+#       # To install script dependencies
+#       - run: pip install pyyaml
 
-      - run: python questions.py questions.md questions.yaml
+#       - run: python questions.py questions.md questions.yaml
 
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add questions.yaml
-          git commit -m "chore: update questions.yaml" || exit 0
-          git push
+#       - run: |
+#           git config user.name "github-actions[bot]"
+#           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#           git add questions.yaml
+#           git commit -m "chore: update questions.yaml" || exit 0
+#           git push
+
