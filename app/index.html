@@ -6,39 +6,48 @@
         <title>DevOps flash cards</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main>
+        <main class="terminal">
             <section id="window-header">
                 <p>DevOps flash cards</p>
-                <p id="ps-header">~/ </p>
             </section>
-
-            <section id="page-categories-section">
+            
+            <section class="screen" id="page-categories-section">
                 <!-- Elements will be added here via JS -->
                 <div id="page-categories-field"></div>
             </section>
 
-            <section id="filters-section">
+            <section class="screen" id="filters-section">
                 <button id="all-btn">All</button>
                 <!-- Elements will be added here via JS -->
                 <div id="filters-field"></div>
             </section>
+            
+            <section class="screen" id="ps-section">
+                <p><span id="ps-text">~/ </span><span id="sep"> $ </span><span id="question-category">Reading...</span></p>
+            </section>
 
-            <section id="questions-section">
+            <section class="screen" id="questions-section">
                 <div>
-                    <!-- The content will be create here via JS -->
-                    <span id="question-category">Reading...</span>
-                    <!-- The content will be create here via JS -->
-                    <span id="question-ask-field">Reading...</span>
-                    <!-- The content will be create here via JS -->
-                    <span id="question-answer-field">Reading...</span>
+                    <div>
+                        <!-- The content will be create here via JS -->
+                        <span id="question-ask-field">Reading...</span>
+                    </div>
+                    <div>
+                        <!-- The content will be create here via JS -->
+                        <span id="question-answer-field">Reading...</span>
+                    </div>
                 </div>
-                <p>Selected categories: <span id="total-categories-quantity">Reading...</span></p>
-                <p>Total questions: <span id="total-questions-quantity">Reading...</span></p>
-                <button id="reveal-question-btn">Reveal answer</button>
-                <button id="next-question-btn">Next question</button>
+                <div>
+                    <p>Selected categories: <span id="total-categories-quantity">Reading...</span></p>
+                    <p>Total questions: <span id="total-questions-quantity">Reading...</span></p>
+                </div>
+                <div>
+                    <button id="reveal-question-btn">Reveal answer</button>
+                    <button id="next-question-btn">Next question</button>
+                </div>
             </section>
         </main>
         

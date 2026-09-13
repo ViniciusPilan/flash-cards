@@ -3,7 +3,7 @@ export const elements = {
     changeToNextQuestionButton: document.getElementById("next-question-btn"),
     filtersField: document.getElementById("filters-field"),
     pageCategoriesField: document.getElementById("page-categories-field"),
-    psHeaderText: document.getElementById("ps-header"),
+    psHeaderText: document.getElementById("ps-text"),
     questionCategory: document.getElementById("question-category"),
     questionAsk: document.getElementById("question-ask-field"),
     questionAnswer: document.getElementById("question-answer-field"),
