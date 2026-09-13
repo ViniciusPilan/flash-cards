@@ -1,5 +1,5 @@
 categories:
-- category: COMPUTER OPERATIONAL SYSTEMS
+- category: Computer operational systems
   questions:
   - question: What is the primary role of an operating system in a computer?
     answer: 'An operating system provides the abstractions and mechanisms that allow applications to use hardware without managing hardware directly. It manages CPU, memory, storage, devices, processes, and security while exposing consistent interfaces to software.
@@ -51,7 +51,7 @@ categories:
 
 
       In DevOps, permissions are critical for services, deployment agents, SSH access, secrets, mounted volumes, and automation. Applying least privilege reduces the impact of compromised processes and prevents accidental access to sensitive system resources.'
-- category: SOFTWARE ENGINEER
+- category: Software engineer
   questions:
   - question: What is abstraction in software engineering?
     answer: 'Abstraction means exposing the essential behavior of a component while hiding unnecessary implementation details. It allows engineers to reason about complex systems through simpler interfaces and contracts.
@@ -103,7 +103,7 @@ categories:
 
 
       For DevOps Engineers, poor error handling can make automation dangerous. Scripts and pipelines should detect failures explicitly, return meaningful exit codes, avoid silently continuing after critical errors, and expose useful information to operators and monitoring systems.'
-- category: SYSTEM DESIGN
+- category: System design
   questions:
   - question: What is scalability in system design?
     answer: 'Scalability is a system''s ability to handle increasing workload while maintaining acceptable performance and reliability. It can involve adding resources to a single system or distributing workload across multiple instances.
@@ -155,7 +155,7 @@ categories:
 
 
       Fault tolerance must be designed around realistic failure scenarios. Adding retries everywhere, for example, can amplify failures. Good designs consider failure domains, dependency behavior, recovery time, and the consequences of partial failure.'
-- category: ARTIFICIAL INTELLIGENCE — LLM ECOSYSTEM
+- category: Artificial intelligence - LLM ecosystem
   questions:
   - question: What is a Large Language Model?
     answer: 'A Large Language Model is a machine-learning model trained on large amounts of text to predict and generate sequences of tokens. Modern LLMs use transformer-based architectures to learn relationships between tokens and produce context-dependent outputs.
@@ -207,7 +207,7 @@ categories:
 
 
       A safer architecture separates reasoning from execution. The model can propose a Kubernetes command or remediation, while deterministic systems validate the request and enforce authorization before anything changes production infrastructure.'
-- category: COMPUTER NETWORK
+- category: Computer network
   questions:
   - question: What is the purpose of the OSI model?
     answer: 'The OSI model provides a conceptual framework for understanding networking by separating communication into layers with different responsibilities. It helps engineers reason about where protocols and failures belong.
@@ -259,7 +259,7 @@ categories:
 
 
       For DevOps troubleshooting, checking whether a port is listening, reachable, and permitted through firewalls is fundamental. Tools such as `ss`, `nc`, and connection tests can help distinguish application, network, and security failures.'
-- category: CLOUD COMPUTING
+- category: Cloud computing
   questions:
   - question: What is cloud computing?
     answer: 'Cloud computing provides on-demand access to computing resources through shared infrastructure and programmable interfaces. Resources such as compute, storage, networking, and managed services can be provisioned and scaled without directly managing all underlying hardware.
@@ -311,7 +311,7 @@ categories:
 
 
       DevOps Engineers influence cost through infrastructure design and operational practices. Unused resources, oversized instances, excessive logging, unnecessary data transfer, and uncontrolled autoscaling are common sources of cloud waste.'
-- category: VIRTUALIZATION AND CONTAINERS
+- category: Virtualization and containers
   questions:
   - question: What is virtualization?
     answer: 'Virtualization abstracts physical hardware so that multiple isolated virtual machines can run on the same physical host. A hypervisor manages hardware resources and provides virtual CPUs, memory, storage, and devices to guest operating systems.
@@ -363,7 +363,7 @@ categories:
 
 
       The key value is declarative management: engineers describe the desired state and controllers continuously work toward that state. This creates a foundation for self-healing, scaling, rolling updates, and automated workload placement.'
-- category: INFRASTRUCTURE AS CODE
+- category: Infrastructure as a Code (IaC)
   questions:
   - question: What is Infrastructure as Code?
     answer: 'Infrastructure as Code represents infrastructure configuration using machine-readable definitions that can be versioned, reviewed, tested, and applied automatically. Instead of manually configuring resources, engineers describe the desired infrastructure state.
@@ -415,7 +415,7 @@ categories:
 
 
       A better approach is to use dedicated secret-management systems and inject credentials securely at runtime or provisioning time. IaC should reference secret mechanisms rather than becoming a secret storage system.'
-- category: MONITORING AND OBSERVABILITY
+- category: Monitoring and Observability
   questions:
   - question: What is the difference between monitoring and observability?
     answer: 'Monitoring focuses on collecting and evaluating predefined signals to determine whether a system is operating correctly. Observability is the broader ability to understand internal system behavior from externally available outputs.
@@ -519,7 +519,7 @@ categories:
 
 
       Pipelines should have controlled permissions, monitoring, auditing, dependency management, secret protection, and reliable failure handling. They are part of the software supply chain and should receive security and reliability attention accordingly.'
-- category: TESTS
+- category: Tests
   questions:
   - question: Why is software testing important?
     answer: 'Testing provides evidence that software behaves according to defined expectations and helps detect regressions before changes reach users. Different types of tests provide confidence at different levels of the system.
@@ -571,7 +571,7 @@ categories:
 
 
       Flaky tests reduce trust in CI because engineers begin ignoring failures. They should be investigated and fixed rather than permanently retried, since blindly retrying can hide real problems.'
-- category: DEVSECOPS
+- category: DevSecops
   questions:
   - question: What is DevSecOps?
     answer: 'DevSecOps integrates security practices into development and operations rather than treating security as a separate final-stage activity. Security becomes part of design, coding, building, deployment, and runtime operations.
@@ -623,7 +623,7 @@ categories:
 
 
       Secrets should not normally be embedded in source code, container images, or plaintext configuration repositories. Dedicated secret-management systems can provide encryption, access control, auditing, and automated rotation.'
-- category: DEVOPS
+- category: DevOps
   questions:
   - question: What is DevOps?
     answer: 'DevOps is a set of cultural, organizational, and technical practices that improve collaboration between development and operations while enabling faster and more reliable software delivery.
@@ -675,7 +675,7 @@ categories:
 
 
       A platform may provide standardized Kubernetes environments, deployment workflows, observability, security controls, and self-service infrastructure. Platform Engineering can therefore be viewed as one way of implementing DevOps principles at organizational scale.'
-- category: SECURITY
+- category: Security
   questions:
   - question: What is the CIA triad?
     answer: 'The CIA triad represents confidentiality, integrity, and availability. Confidentiality protects information from unauthorized access, integrity protects information from unauthorized modification, and availability ensures authorized users can access systems when needed.
