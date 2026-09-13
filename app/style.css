@@ -75,40 +75,36 @@ body {
 /* Category chips (page-categories-field) */
 #page-categories-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
 }
 
 #page-categories-field {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
 }
 
-#page-categories-field .category-item,
 #page-categories-field button {
   font-family: var(--font);
   font-size: 12.5px;
   color: var(--text-dim);
   background: var(--panel-2);
   border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 6px 12px;
+  padding: 12px;
   cursor: pointer;
   transition: border-color 0.12s ease, background 0.12s ease, color 0.12s ease;
+  flex: 1;
 }
 
-#page-categories-field .category-item:hover,
 #page-categories-field button:hover {
-  border-color: var(--cyan);
-  color: var(--text);
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
 }
 
-#page-categories-field .category-item.active,
 #page-categories-field button.active {
-  border-color: #2f6b3a;
-  background: rgba(126, 224, 138, 0.08);
-  color: var(--text);
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
 }
 
 /* Filters bar (all-btn + filters-field) */
@@ -360,6 +356,12 @@ body {
 #next-question-btn:focus-visible {
   outline: 2px solid var(--amber);
   outline-offset: 3px;
+}
+
+#quantity-info {
+  font-size: 13px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 @media (prefers-reduced-motion: reduce) {
