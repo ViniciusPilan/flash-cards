@@ -1,5 +1,4 @@
 // TODO
-// - Verify last item to avoid duplication
 // - Style
 // - Split in specific js files
 
