@@ -61,14 +61,14 @@ I'm working into a educational project where I must create questions and answers
 - Artificial intelligence (focusing in LLM ecosystem)
 - Computer Network
 - Cloud Computing
-- Virtualization
+- Virtualization and Containers
 - Infrastructure as a code (IaC)
 - Monitoring and Observability
 - CI/CD
 - Tests
 - DevSecOps
 - DevOps
-- Containerizations
+- Security
 
 Follow strictly these rules when creating your answer:
 - For each category, you must create the question and also the respective answer.
@@ -115,6 +115,8 @@ I'm working into a educational project where I must create questions and answers
 - Kubernetes (Admin - CKA)
 - Kubernetes (Dev/User - CKAD)
 - Kubernetes (Admin/Sec Engineer - CKS)
+- Docker
+- AWS
 - Istio
 - Prometheus
 - Karpenter
@@ -122,6 +124,7 @@ I'm working into a educational project where I must create questions and answers
 - Python
 - Shell Script
 - GO
+- Linux
 
 Follow strictly these rules when creating your answer:
 - For each category, you must create the question and also the respective answer.
