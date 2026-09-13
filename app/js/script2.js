@@ -1,5 +1,4 @@
 // TODO
-// - Number of selected categories and questions
 // - Verify last item to avoid duplication
 // - Style
 // - Split in specific js files
@@ -35,6 +34,9 @@ const questionCategory = document.getElementById("question-category");
 const questionAsk = document.getElementById("question-ask-field");
 const questionAnswer = document.getElementById("question-answer-field");
 const revealCurrentQuestionButton = document.getElementById("reveal-question-btn");
+const textTotalQuestionsQuantity = document.getElementById("total-questions-quantity");
+const textTotalCategoriesQuantity = document.getElementById("total-categories-quantity");
+
 // ----------------------------------------------------------------------------------------
 
 // Stateless functions (utils) ------------------------------------------------------------
@@ -144,6 +146,14 @@ function refreshAllowedCategoriesList(){
       state.allowedCategories.delete(checkBoxItem.id);
     }
   });
+
+  textTotalCategoriesQuantity.innerHTML = state.allowedCategories.size;
+  
+  if (state.allowedCategories.size == 0) {
+    textTotalQuestionsQuantity.innerHTML = 0;
+  } else {
+    textTotalQuestionsQuantity.innerHTML = state.questionsList.length;
+  }
 }
 
 function selectAllFilters(){
@@ -168,8 +178,10 @@ function changeToNextQuestion(){
 }
 
 function revealCurrentQuestion(){
-  state.currentQuestion.answerHidden = false;
-  refreshCurrentQuestion();
+  if (state.currentQuestion) {
+    state.currentQuestion.answerHidden = false;
+    refreshCurrentQuestion();
+  }
 }
 
 function createPageCategoryButtons(){
