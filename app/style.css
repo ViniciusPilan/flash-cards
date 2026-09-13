@@ -15,11 +15,13 @@
 
 * { box-sizing: border-box; }
 
-html, body {
-  height: 100%;
+html {
+  min-height: 100%;
 }
 
 body {
+  min-height: 100dvh;
+  align-items: flex-start;
   margin: 0;
   background: var(--bg);
   background-image:
