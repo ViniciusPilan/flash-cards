@@ -1,35 +1,8 @@
-import { elements } from "./dom.js"
+import { elements } from "./dom.js";
+import { state } from "./state.js";
+import { Question } from "./models.js";
 
-// TODO
-// - Style
-// - Split in specific js files
 
-// Global vars and state ------------------------------------------------------------------
-class Question {
-  constructor(category, ask, answer) {
-    this.category = category;
-    this.ask = ask;
-    this.answer = answer;
-    this.answerHidden = true;
-  }
-}
-
-const state = {
-  currentQuestion: null,
-  questionsList: [],
-  categoriesList: [],
-  allowedCategories: new Set(),
-  filteredQuestionsList: [],
-  pageCategoriesList: [],
-  currentPageCategory: null,
-  selectAllFlag: false,
-  lastQuestion: new Question()
-}
-// ----------------------------------------------------------------------------------------
-
-// ----------------------------------------------------------------------------------------
-
-// Stateless functions (utils) ------------------------------------------------------------
 async function getPageCategoriesList(filePath){
   const indexFile = await fetch(filePath);
   const indexFileContent = await indexFile.text();
@@ -94,9 +67,7 @@ function getRandomQuestion(questionsList){
   const randomQuestionItem = questionsList[Math.floor(Math.random() * questionsList.length)];
   return randomQuestionItem;
 }
-// ----------------------------------------------------------------------------------------
 
-// Functions ----------------------------------------------------------------------
 function changeCurrentPageCategory(event){
   const clickedButton = event.currentTarget;
   state.currentPageCategory = clickedButton.value;
@@ -226,7 +197,6 @@ function createCheckBoxFilters(){
 }
 
 async function main(){
-  // Init
   state.pageCategoriesList = await getPageCategoriesList("../inputs/_index.yaml");
   state.currentPageCategory = state.pageCategoriesList[0];
 
@@ -238,6 +208,5 @@ async function main(){
   elements.changeToNextQuestionButton.addEventListener("click", changeToNextQuestion);
   elements.revealCurrentQuestionButton.addEventListener("click", revealCurrentQuestion);
 }
-// ----------------------------------------------------------------------------------------
 
 main();
