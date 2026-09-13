@@ -25,7 +25,7 @@ def parse_markdown(md_text: str) -> list[dict]:
     # Split on top-level headings (# Category Name), keeping the heading text.
     # This regex splits the doc into chunks starting at each "# " line
     # that is NOT "##" or "###".
-    section_pattern = re.compile(r"^# (.+)$", re.MULTILINE)
+    section_pattern = re.compile(r"^## (.+)$", re.MULTILINE)
 
     matches = list(section_pattern.finditer(md_text))
     categories = []

@@ -1,8 +1,3 @@
-# Variables
-MD_FILE = questions.md
-YAML_FILE = questions.yaml
-PORT = 8000
-
 # Create virtual environment and install dependencies
 setup:
 	python3 -m venv .venv
@@ -10,20 +5,21 @@ setup:
 
 # Convert Markdown to YAML
 convert:
-	.venv/bin/python3 questions.py $(MD_FILE) $(YAML_FILE)
+	.venv/bin/python3 questions/converter.py \
+		questions/inputs/concepts.md \
+		app/inputs/concepts.yaml
+
+	.venv/bin/python3 questions/converter.py \
+		questions/inputs/tools.md \
+		app/inputs/tools.yaml \
 
 # Run HTTP server
 serve:
-	.venv/bin/python3 -m http.server $(PORT)
-
-# Clean up virtual environment and generated YAML
-clean:
-	rm -rf $(VENV) $(YAML_FILE)
+	.venv/bin/python3 -m http.server -d app
 
 # Display available commands
 help:
 	@echo "Usage:"
 	@echo "  make setup    - Create virtual environment and install dependencies"
-	@echo "  make convert  - Convert $(MD_FILE) to $(YAML_FILE)"
-	@echo "  make serve    - Start Python HTTP server on port $(PORT)"
-	@echo "  make clean    - Remove virtual environment and generated files"
+	@echo "  make convert  - Convert the markdown files of inputs folder to yaml files"
+	@echo "  make serve    - Start Python HTTP server on port 8080"
