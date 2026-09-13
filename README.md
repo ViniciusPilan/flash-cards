@@ -51,8 +51,9 @@ When index.html loads in a browser, it executes script.js. The script fetches qu
 ### Creating questions for a specific category
 The idea here is to create use a specific prompt for each category to avoid context overloading and hallucination.
 
+#### concepts
 ```md
-I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create 8 questions of each area from the following list:
+I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create 10 questions of each concept from the following list:
 
 - Computer Operational Systems
 - Software engineer
@@ -68,22 +69,18 @@ I'm working into a educational project where I must create questions and answers
 - DevSecOps
 - DevOps
 - Containerizations
-- Kubernetes (Admin - CKA)
-- Kubernetes (Dev/User - CKAD)
-- Kubernetes (Admin/Sec Engineer - CKS)
-- DevOps core tools
 
 Follow strictly these rules when creating your answer:
 - For each category, you must create the question and also the respective answer.
 - Each question have one single answer.
 - Each question is answered as you are talking to a DevOps Engineer.
-- The ideal size of the question's answer should be something between 2 or 3 paragraphs (250~450 characteres).
+- The ideal size of the question's answer should be something between 2 or 3 paragraphs (300~500 characteres).
 - It's preferred that the questions focus in principles and fundamentals of that respective area.
 - You only answer this prompt with a Markdown block showing the markdown file formated containing the category name, the questions and each question's answer, following this format:
 
 <!-- START_OUTPUT_STRUCTURE_EXAMPLE -->
 
-# CATEGORY_NAME
+## CATEGORY_NAME
 
 ### 1. QUESTION
 
@@ -95,7 +92,60 @@ Answer.
 
 ---
 
-# CATEGORY_NAME
+## CATEGORY_NAME
+
+### 1. QUESTION
+
+Answer.
+
+### 2. QUESTION
+
+Answer.
+
+---
+
+<!-- END_OUTPUT_STRUCTURE_EXAMPLE -->
+
+```
+
+#### tools
+```md
+I'm working into a educational project where I must create questions and answers to be a study material for DevOps engineers. Create 5 questions of each tool from the following list:
+
+- Kubernetes (Admin - CKA)
+- Kubernetes (Dev/User - CKAD)
+- Kubernetes (Admin/Sec Engineer - CKS)
+- Istio
+- Prometheus
+- Karpenter
+- ArgoCD
+- Python
+- Shell Script
+- GO
+
+Follow strictly these rules when creating your answer:
+- For each category, you must create the question and also the respective answer.
+- Each question have one single answer.
+- Each question is answered as you are talking to a DevOps Engineer.
+- The ideal size of the question's answer should be something between 2 or 3 paragraphs (300~500 characteres).
+- It's preferred that the questions focus in principles and fundamentals of that respective area.
+- You only answer this prompt with a Markdown block showing the markdown file formated containing the category name, the questions and each question's answer, following this format:
+
+<!-- START_OUTPUT_STRUCTURE_EXAMPLE -->
+
+## CATEGORY_NAME
+
+### 1. QUESTION
+
+Answer.
+
+### 2. QUESTION
+
+Answer.
+
+---
+
+## CATEGORY_NAME
 
 ### 1. QUESTION
 
@@ -113,5 +163,5 @@ Answer.
 
 ## Important notes
 - Commits into main branch on questions.md will automatically build a new version of questions.yaml (via GitHub actions).
-- This is a vibe coded project very simple. This development is still in progress.
+- This development is still in progress. Some files were created with AI helps (each file contain the information if it was created with AI or not).
 - I understand that answers could be not 100% accurated as it was created with AI (I'm revisioning each answer to solve that problem). I also understand this is an application to help in remembering concepts, not about learning those from zero indeed. If you will use this project for some way, keep it in mind!
